@@ -27,7 +27,7 @@ var tableLarge = []struct {
 	{input: 10000000},
 }
 
-func makearray(size int) []int {
+func makeArray(size int) []int {
 	numbers := make([]int, size)
 	for i := 0; i < size; i++ {
 		numbers[i] = rand.Intn(size)
@@ -39,7 +39,7 @@ func makearray(size int) []int {
 func BenchmarkBubbleSort(b *testing.B) {
 	for _, v := range table {
 		b.Run(fmt.Sprintf("Items %d", v.input), func(b *testing.B) {
-			data := makearray(v.input)
+			data := makeArray(v.input)
 			b.ResetTimer()
 			for n := 0; n < b.N; n++ {
 				BubbleSort(data)
@@ -51,7 +51,7 @@ func BenchmarkBubbleSort(b *testing.B) {
 func BenchmarkSelectionSort(b *testing.B) {
 	for _, v := range table {
 		b.Run(fmt.Sprintf("Items %d", v.input), func(b *testing.B) {
-			data := makearray(v.input)
+			data := makeArray(v.input)
 
 			b.ResetTimer()
 			for n := 0; n < b.N; n++ {
@@ -64,7 +64,7 @@ func BenchmarkSelectionSort(b *testing.B) {
 func BenchmarkInsertionSort(b *testing.B) {
 	for _, v := range table {
 		b.Run(fmt.Sprintf("Items %d", v.input), func(b *testing.B) {
-			data := makearray(v.input)
+			data := makeArray(v.input)
 
 			b.ResetTimer()
 			for n := 0; n < b.N; n++ {
@@ -77,7 +77,7 @@ func BenchmarkInsertionSort(b *testing.B) {
 func BenchmarkMergeSort(b *testing.B) {
 	for _, v := range tableLarge {
 		b.Run(fmt.Sprintf("Items %d", v.input), func(b *testing.B) {
-			data := makearray(v.input)
+			data := makeArray(v.input)
 
 			b.ResetTimer()
 			for n := 0; n < b.N; n++ {
@@ -90,7 +90,7 @@ func BenchmarkMergeSort(b *testing.B) {
 func BenchmarkQuickSort(b *testing.B) {
 	for _, v := range tableLarge {
 		b.Run(fmt.Sprintf("Items %d", v.input), func(b *testing.B) {
-			data := makearray(v.input)
+			data := makeArray(v.input)
 
 			b.ResetTimer()
 			for n := 0; n < b.N; n++ {
